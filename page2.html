@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page 2</title>
+</head>
+<body>
+	<h1>Page 2</h1>
+	<a href="page1.html">Page 1</a>
+	<h2>Events triggered:</h2>
+	<div id="out"></div>
+	
+	<script>
+		(function(win, doc){
+      var out = doc.getElementById("out"),
+			eventAlert = function(e) {
+				out.innerHTML += <br/> + e.type;
+			},
+
+			winEvents = [
+				"load",
+				"unload",
+				"pageshow",
+				"pagehide",
+			],
+
+			docEvents = [
+				"DOMContentLoaded"
+			];
+			
+			winEvents.forEach(
+				function(item) {
+					win.addEventListener(item, eventAlert, false);
+				}
+			);
+
+			docEvents.forEach(
+				function(item) {
+					doc.addEventListener(item, eventAlert, false);
+				}
+			);
+		}(window, document));
+	</script>
+</body>
+</html>
