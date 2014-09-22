@@ -16,6 +16,8 @@
 			eventAlert = function(e) {
 				win.alert(doc.title + ": " + e.type);
 			},
+			winEventsEnabled = false,
+			docEventsEnabled = false,
 
 			winEvents = [
 				"load",
@@ -28,17 +30,21 @@
 				"DOMContentLoaded"
 			];
 			
-			winEvents.forEach(
-				function(item) {
-					win.addEventListener(item, eventAlert, false);
-				}
-			);
-
-			docEvents.forEach(
-				function(item) {
-					doc.addEventListener(item, eventAlert, false);
-				}
-			);
+			if (winEventsEnabled) {
+				winEvents.forEach(
+					function(item) {
+						win.addEventListener(item, eventAlert, false);
+					}
+				);
+			}
+			
+			if (docEventsEnabled) {
+				docEvents.forEach(
+					function(item) {
+						doc.addEventListener(item, eventAlert, false);
+					}
+				);
+			}
 		}(window, document));
 	</script>
 </body>
