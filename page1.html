@@ -13,12 +13,18 @@
 	<p>
 	<a href="page3.html">Page 3</a>
 	</p>
+	<h2>Pageshow event</h2>
+	<div id="out"></div>
 	
 	<script>
 		(function(win, doc){
       			var out = doc.getElementById("out"),
 			eventAlert = function(e) {
-				win.alert(doc.title + ": " + e.type + " Persisted: " + e.persisted);
+				if (e.type === "pageshow") {
+					out.innerHTML += "Persisted: " + e.persisted + "<br/>";
+				} else {
+					win.alert(doc.title + ": " + e.type + " Persisted: " + e.persisted);
+				}
 			},
 
 			winEvents = [
