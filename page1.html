@@ -14,8 +14,7 @@
 		(function(win, doc){
       var out = doc.getElementById("out"),
 			eventAlert = function(e) {
-				win.alert(e.type);
-				//out.innerHTML += "<br/>" + e.type;
+				win.alert("Page1" + e.type);
 			},
 
 			winEvents = [
