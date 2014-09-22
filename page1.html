@@ -12,9 +12,9 @@
 	
 	<script>
 		(function(win, doc){
-      var out = doc.getElementById("out"),
+      			var out = doc.getElementById("out"),
 			eventAlert = function(e) {
-				win.alert("Page1" + e.type);
+				win.alert(doc.title + e.type);
 			},
 
 			winEvents = [
